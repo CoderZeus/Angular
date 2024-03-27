@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "app-1",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"label": "npm: start - app-1",
+			"detail": "ng serve"
+		}
+	]
+}
