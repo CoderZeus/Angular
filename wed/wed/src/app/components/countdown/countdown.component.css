@@ -1,13 +1,35 @@
+.parent {
+  background-image: url('../../../assets/img2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 200vh;
+  width: 200vh;
+}
+
+.container {
+  position: relative;
+  width: 200vh;
+  height: 15vh;
+  padding-left: 15%;
+  padding-right: 15%;
+  display: table-row ;
+}
+
 .count-down-timer {
-    box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%);
+    
+    /* box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%); */
     text-align: center;
-    background-color: #313b3f;
-    max-width: 400px;
+    /* background-color: #313b3f; */
+    min-width: 100vh;
+    /* max-width: 400px; */
     margin: 20px auto;
-    color: #d9a74a;
+    /* color: #d9a74a; */
+    color: #d8d2c6;
     border-radius: 6px;
     padding: 10px;
     font-family: sans-serif;
+    display: table-row ;
   
     > p {
       margin: 5px 0 15px 0;
@@ -35,7 +57,7 @@
           margin: 0;
           font: normal 40px courier, sans-serif;
           ::ng-deep img {
-            position: absolute;
+            position: relative;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);

@@ -1,57 +1,54 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+
+import { AfterViewInit, Component, Input, Output } from '@angular/core';
+import moment, { Moment, now } from 'moment';
 // https://stackblitz.com/edit/angular-countdown-timer-component?file=src%2Fstyles.scss
 @Component({
   selector: 'countdown-timer',
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.css'],
 })
-export class countdownComponent implements AfterViewInit {
-  date: any;
-  now: any;
-  targetDate: any = new Date(2024, 5, 11);
-  targetTime: any = this.targetDate.getTime();
-  difference: number = 0;
-  months: Array<string> = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  currentTime: any = `${
-    this.months[this.targetDate.getMonth()]
-  } ${this.targetDate.getDate()}, ${this.targetDate.getFullYear()}`;
+export class countdownComponent implements AfterViewInit{
 
-  @ViewChild('days', { static: true }) days: ElementRef;
-  @ViewChild('hours', { static: true }) hours: ElementRef;
-  @ViewChild('minutes', { static: true }) minutes: ElementRef;
-  @ViewChild('seconds', { static: true }) seconds: ElementRef;
+  @Input ({ required: true})
+  targetDateTime: string ;
+  targetMoment : Moment;
+  currentTime: number;
+  diff : number;
 
-  ngAfterViewInit() {
-    setInterval(() => {
-      this.tickTock();
-      this.difference = this.targetTime - this.now;
-      this.difference = this.difference / (1000 * 60 * 60 * 24);
+  //@Output ()
+  odays: number;
+  ohours: number;
+  omins: number;
+  osecs: number;
 
-      !isNaN(this.days.nativeElement.innerText)
-        ? (this.days.nativeElement.innerText = Math.floor(this.difference))
-        : (this.days.nativeElement.innerHTML = `<img src="https://i.gifer.com/VAyR.gif" />`);
-    }, 1000);
+
+  constructor () {
+    this.targetDateTime = "2024-05-05 10:00:00"
+    this.currentTime = moment.now();
+    this.targetMoment = moment(this.targetDateTime);
+    this.diff = this.targetMoment.diff(now());
+    
+    
+    this.odays = 0;
+    this.ohours = 0;
+    this.omins = 0;
+    this.osecs = 0;
+
   }
 
-  tickTock() {
-    this.date = new Date();
-    this.now = this.date.getTime();
-    this.days.nativeElement.innerText = Math.floor(this.difference);
-    this.hours.nativeElement.innerText = 23 - this.date.getHours();
-    this.minutes.nativeElement.innerText = 60 - this.date.getMinutes();
-    this.seconds.nativeElement.innerText = 60 - this.date.getSeconds();
+  ngAfterViewInit(): void {
+    setInterval(() => { this.calculateInterval();}, 1000);
   }
+
+  private calculateInterval() {
+    this.currentTime = moment.now();
+    this.targetMoment = moment(this.targetDateTime);
+    this.diff = this.targetMoment.diff(this.currentTime);
+    // moment("").date;
+   this.odays = this.targetMoment.diff(this.currentTime, 'days');
+   this.ohours = this.targetMoment.diff(this.currentTime, 'hours') %24 ;
+   this.omins = this.targetMoment.diff(this.currentTime, 'minutes') %60 ;
+   this.osecs = this.targetMoment.diff(this.currentTime, 'seconds') %60;
+  }
+    
 }

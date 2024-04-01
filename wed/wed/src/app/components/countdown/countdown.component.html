@@ -1,17 +1,25 @@
-<div class="count-down-timer">
-    <p>Countdown to {{ currentTime }}</p>
-    <div class="wrapper">
-      <div class="description">
-        <p>Days</p>
-        <p>Hours</p>
-        <p>Minutes</p>
-        <p>Seconds</p>
+ 
+    <!-- background="../../../assets/img2.jpg"  -->
+    <div class="container">
+    <div class="count-down-timer">
+      <!-- <p>Countdown to {{ currentTime }}</p> -->
+      <p>Event Starts at {{ targetDateTime }}</p>
+      <!-- <p>TargetDate to {{ diff }}</p> -->
+      <div class="wrapper">
+        <div class="description">
+          <p>Days</p>
+          <p>Hours</p>
+          <p>Minutes</p>
+          <p>Seconds</p>
+        </div>
+        <div class="times">
+          <p #days>{{odays}}</p>
+          <p #hours>{{ohours}}</p>
+          <p #minutes>{{omins}}</p>
+          <p #seconds>{{osecs}}</p>
+        </div>
       </div>
-      <div class="times">
-        <p #days></p>
-        <p #hours></p>
-        <p #minutes></p>
-        <p #seconds></p>
-      </div>
+      <!-- <img src="../../../assets/img2.jpg" alt="background" class="responsive" /> -->
     </div>
   </div>
+   

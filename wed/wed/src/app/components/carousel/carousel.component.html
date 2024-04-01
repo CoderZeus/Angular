@@ -1,0 +1,22 @@
+<div>
+    <!-- [responsiveOptions]="responsiveOptions" [numVisible]="3" [numScroll]="3" [circular]="false" -->
+<p-carousel [value]="products" [numVisible]="1" [numScroll]="2" [circular]="true" [showIndicators]="true" [showNavigators]="true" >  
+    <ng-template let-product pTemplate="item">
+        <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+            <div class="mb-3">
+                <!-- <img src="../../../assets/img1.jpg" [alt]="product.id" class="w-6 shadow-2" /> -->
+                <img src="../../../assets/{{product.value}}" [alt]="product.id" class="responsive" />
+            </div>
+            <div>
+                <h4 class="mb-1">{{ product.name }}</h4>
+                <!-- <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6> -->
+                <!-- <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag> -->
+                <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                    <p-button icon="pi pi-search" [rounded]="true" />
+                    <p-button icon="pi pi-star-fill" [rounded]="true" severity="secondary" />
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
+</div>
