@@ -1,0 +1,12 @@
+runtime: nodejs
+env: flex
+
+handlers:
+  - url: /
+    static_files: dist/wed/browser/index.html
+    upload: dist/wed/browser/index.html
+
+  - url: /(.*)
+    static_files: dist/\1
+    upload: dist/(.*)
+

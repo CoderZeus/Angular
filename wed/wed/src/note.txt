@@ -1,0 +1,2 @@
+gcloud builds submit -t gcr.io/sharath-ananya-wedding/wed
+gcloud run deploy --image gcr.io/sharath-ananya-wedding/wed --port 4200

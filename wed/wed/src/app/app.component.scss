@@ -1,8 +1,11 @@
 .parent {
-    background-image: url('../assets/img2.jpg');
+    background-image: url('../assets/img3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 200vh;
-    width: 200vh;
+    //background-size: 100% auto;
+     height: 200vh;
+     width: 200vh;
+    //height: 100%;
+    //width: auto;
   }
