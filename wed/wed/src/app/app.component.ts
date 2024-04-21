@@ -12,5 +12,5 @@ import { CarouselModule } from 'primeng/carousel';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'wed';
+  title = 'Sharath & Ananya';
 }
