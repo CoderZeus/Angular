@@ -6,8 +6,10 @@
     </div>  
   <!-- <s-carousel></s-carousel> -->
   <!-- <test></test> -->
-  <music-component></music-component>
-  <audio autoplay="true" preload="auto" loop="true" src="../assets/song.mp3"></audio>
+  <popup-component [showOverlay]="true" (shouldPlay)="trigEvent($event)"></popup-component>
+  <music-component [sPlay]="isPlaying" ></music-component>
+  
+  <!-- <audio autoplay="true" preload="auto" loop="true" src="../assets/song.mp3"></audio> -->
   </div>
 </main>
 
